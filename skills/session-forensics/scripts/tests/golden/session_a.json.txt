@@ -1,0 +1,64 @@
+{
+  "transcript": "tests/fixtures/multisession/session_a.jsonl",
+  "analysis": {
+    "sessions": [
+      "multi-a"
+    ],
+    "lines": 3,
+    "by_type": {
+      "user": 2,
+      "assistant": 1
+    },
+    "block_types": {
+      "tool_use": 1,
+      "tool_result": 1
+    },
+    "tools": {
+      "Bash": 1
+    },
+    "versions": {
+      "2.1.0": 3
+    },
+    "branches": {
+      "main": 3
+    },
+    "sidechain_lines": 0,
+    "first_timestamp": "2026-06-20T09:00:00Z",
+    "last_timestamp": "2026-06-20T09:00:02Z",
+    "signals": {
+      "parse_errors": [],
+      "loops": {},
+      "tool_errors": [
+        "make: command not found"
+      ],
+      "api_errors": [],
+      "nonzero_exits": [
+        [
+          "make build",
+          127
+        ]
+      ],
+      "system_warnings": [],
+      "edit_without_read": []
+    }
+  },
+  "triage": [
+    {
+      "category": "Tool / runtime failure",
+      "severity": "medium",
+      "evidence": "1 non-zero exit(s), 1 errored tool_result block(s)",
+      "detail": {
+        "exits": [
+          [
+            "make build",
+            127
+          ]
+        ],
+        "errors": [
+          "make: command not found"
+        ]
+      }
+    }
+  ],
+  "subagents": []
+}

@@ -1,0 +1,54 @@
+{
+  "transcript": "tests/fixtures/inefficient.jsonl",
+  "analysis": {
+    "sessions": [
+      "eff-001"
+    ],
+    "lines": 13,
+    "by_type": {
+      "user": 7,
+      "assistant": 6
+    },
+    "block_types": {
+      "tool_use": 6,
+      "tool_result": 6
+    },
+    "tools": {
+      "Read": 3,
+      "Bash": 3
+    },
+    "versions": {
+      "2.1.0": 13
+    },
+    "branches": {
+      "main": 13
+    },
+    "sidechain_lines": 0,
+    "first_timestamp": "2026-06-21T13:00:00Z",
+    "last_timestamp": "2026-06-21T13:00:06bZ",
+    "signals": {
+      "parse_errors": [],
+      "loops": {
+        "Read:file_path=/app/config.py": 3,
+        "Bash:command=npm test": 3
+      },
+      "tool_errors": [],
+      "api_errors": [],
+      "nonzero_exits": [],
+      "system_warnings": [],
+      "edit_without_read": []
+    }
+  },
+  "triage": [
+    {
+      "category": "Infinite loop / red-herring",
+      "severity": "medium",
+      "evidence": "2 tool-call signature(s) repeated \u22653\u00d7; worst = 3\u00d7",
+      "detail": {
+        "Read:file_path=/app/config.py": 3,
+        "Bash:command=npm test": 3
+      }
+    }
+  ],
+  "subagents": []
+}

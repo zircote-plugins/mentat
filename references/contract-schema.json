@@ -1,0 +1,80 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/zircote/marketplace/plugins/mentat/contract-schema.json",
+  "title": "mentat fix-contract",
+  "description": "Machine-parseable contract exchanged between artifact-repair and the top-level session across the two-round handshake. See fix-contract-protocol.md.",
+  "type": "object",
+  "oneOf": [
+    { "required": ["round", "diagnosis", "fixes"] },
+    { "required": ["round", "approved_patch_ids"] },
+    { "required": ["round", "applied"] }
+  ],
+  "properties": {
+    "contract_version": { "type": "string", "default": "1" },
+    "round": { "enum": ["proposal", "authorization", "result"] },
+    "session": { "type": "string", "description": "session-id or transcript path" },
+    "target_artifact": { "type": "string", "description": "path to the artifact under repair" },
+    "default_applier": { "enum": ["top-level", "mentat"], "default": "top-level" },
+    "diagnosis": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "category", "severity", "root_cause", "evidence"],
+        "properties": {
+          "id": { "type": "string" },
+          "category": { "type": "string" },
+          "severity": { "enum": ["high", "medium", "low"] },
+          "root_cause": { "type": "string" },
+          "evidence": { "type": "string", "description": "transcript/artifact signal proving it" }
+        }
+      }
+    },
+    "fixes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "addresses", "file", "summary", "diff", "requested_authority", "verify"],
+        "properties": {
+          "id": { "type": "string" },
+          "addresses": { "type": "array", "items": { "type": "string" } },
+          "file": { "type": "string" },
+          "summary": { "type": "string" },
+          "diff": { "type": "string", "description": "unified diff; computed in round 1, NOT applied" },
+          "requested_authority": { "enum": ["propose", "apply"] },
+          "blast_radius": { "type": "string" },
+          "risk": { "enum": ["high", "medium", "low"] },
+          "verify": { "type": "string", "description": "command that proves the fix, e.g. claude plugin validate <plugin>" }
+        }
+      }
+    },
+    "open_decisions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "question", "options"],
+        "properties": {
+          "id": { "type": "string" },
+          "question": { "type": "string" },
+          "options": { "type": "array", "items": { "type": "string" } },
+          "default": { "type": "string" }
+        }
+      }
+    },
+    "requires_from_top_level": { "type": "array", "items": { "type": "string" } },
+    "approved_patch_ids": { "type": "array", "items": { "type": "string" } },
+    "granted_authority": {
+      "type": "object",
+      "description": "map of patch id -> authority",
+      "additionalProperties": { "enum": ["top-level-apply", "mentat-apply"] }
+    },
+    "decisions": {
+      "type": "object",
+      "description": "map of decision id -> chosen option",
+      "additionalProperties": { "type": "string" }
+    },
+    "applied": { "type": "array", "items": { "type": "string" } },
+    "applied_by": { "enum": ["top-level", "mentat"] },
+    "verification": { "type": "string" },
+    "remaining": { "type": "array", "items": { "type": "string" } }
+  }
+}

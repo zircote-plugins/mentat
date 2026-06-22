@@ -1,0 +1,20 @@
+# mentat session forensics
+transcript : tests/fixtures/inefficient.jsonl
+session    : eff-001
+cc version : 2.1.0
+lines      : 13  |  inline sidechain lines: 0 (subagents externalized to <session>/subagents/ — see below)
+tools      : {'Read': 3, 'Bash': 3}
+
+## Triage (1 finding(s))
+
+### [MEDIUM] Infinite loop / red-herring
+FORENSIC EVIDENCE: 2 tool-call signature(s) repeated ≥3×; worst = 3×
+```json
+{
+  "Read:file_path=/app/config.py": 3,
+  "Bash:command=npm test": 3
+}
+```
+
+## Subagents
+No externalized subagent transcripts for this session.

@@ -1,0 +1,41 @@
+{
+  "transcript": "tests/fixtures/injection.jsonl",
+  "analysis": {
+    "sessions": [
+      "inj-001"
+    ],
+    "lines": 4,
+    "by_type": {
+      "user": 2,
+      "assistant": 2
+    },
+    "block_types": {
+      "tool_use": 1,
+      "tool_result": 1,
+      "text": 1
+    },
+    "tools": {
+      "WebFetch": 1
+    },
+    "versions": {
+      "2.1.0": 4
+    },
+    "branches": {
+      "main": 4
+    },
+    "sidechain_lines": 0,
+    "first_timestamp": "2026-06-21T12:00:00Z",
+    "last_timestamp": "2026-06-21T12:00:03Z",
+    "signals": {
+      "parse_errors": [],
+      "loops": {},
+      "tool_errors": [],
+      "api_errors": [],
+      "nonzero_exits": [],
+      "system_warnings": [],
+      "edit_without_read": []
+    }
+  },
+  "triage": [],
+  "subagents": []
+}

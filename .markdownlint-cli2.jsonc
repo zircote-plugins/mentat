@@ -1,0 +1,13 @@
+{
+  // Line-length cannot apply to table rows or code blocks — their content
+  // cannot be wrapped without breaking the construct. MD013 stays enforced
+  // for prose.
+  "config": {
+    "MD013": { "tables": false, "code_blocks": false }
+  },
+  // references/claude-code-docs/ is an upstream Claude Code doc mirror synced
+  // by scripts/refresh_docs.sh — not authored here, so it is not restyled.
+  "ignores": [
+    "references/claude-code-docs/**"
+  ]
+}

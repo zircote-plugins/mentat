@@ -1,0 +1,55 @@
+{
+  "transcript": "tests/fixtures/corrupt.jsonl",
+  "analysis": {
+    "sessions": [
+      "corrupt-001"
+    ],
+    "lines": 3,
+    "by_type": {
+      "user": 1,
+      "assistant": 1,
+      "_parse_error": 1
+    },
+    "block_types": {
+      "text": 1
+    },
+    "tools": {},
+    "versions": {
+      "2.1.0": 2
+    },
+    "branches": {
+      "main": 2
+    },
+    "sidechain_lines": 0,
+    "first_timestamp": "2026-06-21T14:00:00Z",
+    "last_timestamp": "2026-06-21T14:00:01Z",
+    "signals": {
+      "parse_errors": [
+        {
+          "line": 3,
+          "err": "Unterminated string starting at: line 1 column 121 (char 120)"
+        }
+      ],
+      "loops": {},
+      "tool_errors": [],
+      "api_errors": [],
+      "nonzero_exits": [],
+      "system_warnings": [],
+      "edit_without_read": []
+    }
+  },
+  "triage": [
+    {
+      "category": "Corrupt / truncated transcript",
+      "severity": "medium",
+      "evidence": "1 unparseable JSONL line(s)",
+      "detail": [
+        {
+          "line": 3,
+          "err": "Unterminated string starting at: line 1 column 121 (char 120)"
+        }
+      ]
+    }
+  ],
+  "subagents": []
+}

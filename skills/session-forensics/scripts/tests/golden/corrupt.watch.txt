@@ -1,0 +1,3 @@
+{"event": "watch_start", "transcript": "tests/fixtures/corrupt.jsonl"}
+{"event": "issue", "severity": "medium", "category": "Corrupt / truncated transcript", "evidence": "1 unparseable JSONL line(s)", "recommendation": "Transcript has unparseable lines \u2014 session may have crashed; recover from snapshot.", "fix_authority": "propose", "lines_scanned": 3}
+{"event": "watch_done", "new_issues": 1}

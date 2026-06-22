@@ -1,0 +1,40 @@
+{
+  "transcript": "tests/fixtures/no_usage.jsonl",
+  "analysis": {
+    "sessions": [
+      "old-001"
+    ],
+    "lines": 3,
+    "by_type": {
+      "user": 2,
+      "assistant": 1
+    },
+    "block_types": {
+      "tool_use": 1,
+      "tool_result": 1
+    },
+    "tools": {
+      "Read": 1
+    },
+    "versions": {
+      "2.0.5": 3
+    },
+    "branches": {
+      "main": 3
+    },
+    "sidechain_lines": 0,
+    "first_timestamp": "2026-01-02T08:00:00Z",
+    "last_timestamp": "2026-01-02T08:00:02Z",
+    "signals": {
+      "parse_errors": [],
+      "loops": {},
+      "tool_errors": [],
+      "api_errors": [],
+      "nonzero_exits": [],
+      "system_warnings": [],
+      "edit_without_read": []
+    }
+  },
+  "triage": [],
+  "subagents": []
+}

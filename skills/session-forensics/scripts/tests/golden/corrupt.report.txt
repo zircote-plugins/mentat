@@ -1,0 +1,22 @@
+# mentat session forensics
+transcript : tests/fixtures/corrupt.jsonl
+session    : corrupt-001
+cc version : 2.1.0
+lines      : 3  |  inline sidechain lines: 0 (subagents externalized to <session>/subagents/ — see below)
+tools      : {}
+
+## Triage (1 finding(s))
+
+### [MEDIUM] Corrupt / truncated transcript
+FORENSIC EVIDENCE: 1 unparseable JSONL line(s)
+```json
+[
+  {
+    "line": 3,
+    "err": "Unterminated string starting at: line 1 column 121 (char 120)"
+  }
+]
+```
+
+## Subagents
+No externalized subagent transcripts for this session.

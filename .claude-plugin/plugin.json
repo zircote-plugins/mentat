@@ -1,0 +1,31 @@
+{
+  "name": "mentat",
+  "version": "0.2.0",
+  "description": "Transcript-intelligence suite for Claude Code sessions. Ingests a session by id or transcript path, parses the real JSONL schema, and analyzes across dimensions — reliability (loops, tool/runtime + API errors, anti-patterns, context pressure), security (secrets in tool I/O, dangerous commands, prompt injection, exfiltration — always redacted, CI-gatable), and efficiency (real token spend, redundant work, cost). Every finding carries a stable fingerprint for cross-session dedup, feeding a local corpus that surfaces recurring-failure trends and proposes durable fixes. Negotiates a non-destructive fix contract (analyze, recommend, propose, apply) and includes a live transcript monitor for agent-to-agent feedback plus version-matched doc refresh.",
+  "author": {
+    "name": "zircote",
+    "email": "zircote@zircote.com",
+    "url": "https://github.com/zircote"
+  },
+  "license": "MIT",
+  "keywords": [
+    "claude-code",
+    "diagnostics",
+    "forensics",
+    "transcript",
+    "jsonl",
+    "session-log",
+    "troubleshooting",
+    "flaky",
+    "loop-detection",
+    "triage",
+    "remediation",
+    "agent-to-agent",
+    "monitor",
+    "slash-commands",
+    "skills",
+    "subagents",
+    "plugins",
+    "version-matched-docs"
+  ]
+}

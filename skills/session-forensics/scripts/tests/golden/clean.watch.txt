@@ -1,0 +1,2 @@
+{"event": "watch_start", "transcript": "tests/fixtures/clean.jsonl"}
+{"event": "watch_done", "new_issues": 0}
